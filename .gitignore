@@ -1,0 +1,8 @@
+# Hidden folders
+.gradle/
+.idea/
+.vscode/
+
+# Compiling folders
+bin/
+build/

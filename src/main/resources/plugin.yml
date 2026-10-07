@@ -1,0 +1,95 @@
+name: BSWEPlugin
+version: '${version}'
+description: "Custom setup for the Build SouthWest Europe team server"
+authors:
+  - THElib03
+
+main: eu.buildsouthwest.bSWEPlugin.BSWEPlugin
+prefix: bswe
+api-version: '26.2'
+load: POSTWORLD
+
+depend: [WorldGuard, Terraplusminus]
+#paper-plugin-loader: eu.buildsouthwest.bSWEPlugin.BSWEPluginLoader
+
+commands:
+  leave:
+    description: Lorem Ipsum
+    usage: /leave
+  join:
+    description: Lorem Ipsum
+    usage: /join
+  welcomemessage:
+    description: Print to chat all the welcome messages
+    usage: /welcomemessage
+
+  time:
+    description: Change your personal in-game time
+    usage: /time <time|number>
+  weather:
+    description: Change your personal in-game weather
+
+  builder:
+    description: Open your builder utilities menu
+    usage: /builder
+  c:
+    description: Open your builder utilities menu
+    usage: /builder
+  bn:
+    description: Open the banner creation menu
+    usage: /bn
+
+  plugins:
+    description: List what plugins make our server possible.
+    usage: /plugins
+
+  link:
+    description: Link your discord account to start participating in BTE SouthWest Europe.
+    usage: /link
+  discordlink:
+    description: Link your discord account to start participating in BTE SouthWest Europe.
+    usage: /discordlink
+  iblink:
+    description: Link your discord account to start participating in BTE SouthWest Europe.
+    usage: /iblink
+
+  unlink:
+    description: Disconnect your Minecraft acount from its associated Discord account.
+    usage: /unlink
+  discordunlink:
+    description: Disconnect your Minecraft acount from its associated Discord account.
+    usage: /discordunlink
+  ibunlink:
+    description: Disconnect your Minecraft acount from its associated Discord account.
+    usage: /ibunlink
+
+  debugstick:
+    description: Obtain a debug stick
+    usage: /debugstick
+  dstick:
+    description: Obtain a debug stick
+    usage: /dstick
+  blockwand:
+    description: Obtain a debug stick
+    usage: /blockwand
+
+  hide:
+    description: Hide your profile from others in our Dynmap.
+    usage: /hide
+  show:
+    description: Reveal your profile from others in our Dynmap.
+    usage: /show
+
+  increment:
+    description: Change how many blocks a WorldEdit selection can be expander, contratec or moved at once.
+    usage: /increment <check|on|off|set> [number] or /increment <number>
+    aliases: [inc]
+
+  tpll:
+    description: Teleport to a coordinate from real life
+    usage: /tpll <latitude> <longitude> [height]
+
+permissions:
+  tpll.trial:
+    description: ""
+    default: op
