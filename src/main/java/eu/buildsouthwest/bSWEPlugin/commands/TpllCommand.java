@@ -1,5 +1,6 @@
 package eu.buildsouthwest.bSWEPlugin.commands;
 
+import com.sk89q.worldguard.protection.flags.StateFlag;
 import de.btegermany.terraplusminus.gen.RealWorldGenerator;
 import eu.buildsouthwest.bSWEPlugin.scripts.RegionService;
 import net.buildtheearth.terraminusminus.generator.EarthGeneratorSettings;
@@ -30,21 +31,17 @@ public class TpllCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender cs, Command cm, String label, String[] args) {
-        plugin.getLogger().warning("Command tpll intercepted.");
         if (!(cs instanceof Player pl)) {
             cs.sendMessage(NONPLAYER);
             return true;
         }
 
-        plugin.getLogger().warning("Command is from a player");
         if(pl.hasPermission("t+-.tpll")) forwardCommand(pl, args);
 
-        plugin.getLogger().warning("Player is not a builder");
         if(!pl.hasPermission("tpll.trial")){
             pl.sendMessage(USAGE);
             return true;
         }
-        plugin.getLogger().warning("Player is allowed to tp");
 
         // Adapted from TerraPlusMinus (https://github.com/BTE-Germany/TerraPlusMinus/)
         // Copyright (c) 2026 BTE Germany
@@ -61,7 +58,6 @@ public class TpllCommand implements CommandExecutor {
             return false;
         }
 
-        plugin.getLogger().warning("Correct world to TP");
         EarthGeneratorSettings generatorSettings = terraGenerator.getSettings();
         GeographicProjection projection = generatorSettings.projection();
         LatLng parsedCoords;
@@ -79,31 +75,28 @@ public class TpllCommand implements CommandExecutor {
             double[] mcCoords = projection.fromGeo(parsedCoords.getLng(), parsedCoords.getLat());
             x = mcCoords[0];
             z = mcCoords[1];
-            plugin.getLogger().warning("Parsed coords are " + x + " " + z);
         }
         catch(OutOfProjectionBoundsException oopbe){
             cs.sendMessage("§cLocation is not within projection bounds.");
             return false;
         }
 
-        plugin.getLogger().warning("Parsing of coords correct");
-        Location destinationLoc = new Location(pl.getWorld(), x, 0, z);
+        Location destinationLoc = new Location(pl.getWorld(), x, pl.getY(), z);
         if(RegionService.isTrialRegion(destinationLoc)) forwardCommand(pl, args);
         else pl.sendMessage(OUTSIDE);
-        plugin.getLogger().warning("TP action decided");
 
         return true;
     }
 
     private void forwardCommand(Player pl , String[] args){
         if(args.length == 1){
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tpll -p" + pl.getName() + " " + args[0]);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tpll -p " + pl.getName() + " " + args[0]);
         }
         else if(args.length == 2){
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tpll -p" + pl.getName() + " " + args[0] + " " + args[1]);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tpll -p " + pl.getName() + " " + args[0] + " " + args[1]);
         }
         else if(args.length == 3){
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tpll -p" + pl.getName() + " " + args[0] + " " + args[1] + " " + args[2]);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tpll -p " + pl.getName() + " " + args[0] + " " + args[1] + " " + args[2]);
         }
         else{
             pl.performCommand("tpll");
