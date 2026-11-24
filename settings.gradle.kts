@@ -1,1 +1,1 @@
-rootProject.name = "CustomPlugin"
+rootProject.name = "SouthWest_Plugin"

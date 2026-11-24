@@ -6,7 +6,7 @@ authors:
 
 main: eu.buildsouthwest.bSWEPlugin.BSWEPlugin
 prefix: bswe
-api-version: '26.2'
+api-version: '26.3'
 load: POSTWORLD
 
 depend: [WorldGuard, Terraplusminus]
