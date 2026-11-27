@@ -45,11 +45,11 @@ public class PlayerJoinListener implements Listener {
             Welcome.newPlayer(pl);
         }
 
-        if(!pl.hasPermission("essentials.nick") || !pl.getName().equals(
-                PlainTextComponentSerializer.plainText()
-                .serialize(pl.displayName()))){
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "nick " + pl.getName() + " off");
-        }
+//        if(!pl.hasPermission("essentials.nick") || !pl.getName().equals(
+//                PlainTextComponentSerializer.plainText()
+//                .serialize(pl.displayName()))){
+//            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "nick " + pl.getName() + " off");
+//        }
 
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
             Location loc = pl.getLocation();

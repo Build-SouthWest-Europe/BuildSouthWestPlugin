@@ -40,12 +40,12 @@ public class AliasCommands implements CommandExecutor {
     }
 
     private boolean handleTime(Player pl, String[] args){
-        pl.performCommand("time" + args[0].toString());
+        pl.performCommand("ptime" + args[0].toString());
         return true;
     }
 
     private boolean handleWeather(Player pl, String[] args){
-        pl.performCommand("weather" + args[0].toString());
+        pl.performCommand("pweather" + args[0].toString());
         return true;
     }
 
@@ -60,7 +60,7 @@ public class AliasCommands implements CommandExecutor {
     }
 
     private boolean handlePlugins(Player pl){
-        Component message = Component.text("Plugins (5): ")
+        pl.sendMessage(Component.text("Plugins (5): ")
                 .append(Component.text("Never", NamedTextColor.GREEN))
                 .append(Component.text(", "))
                 .append(Component.text("Gonna", NamedTextColor.GREEN))
@@ -69,7 +69,7 @@ public class AliasCommands implements CommandExecutor {
                 .append(Component.text(", "))
                 .append(Component.text(" You", NamedTextColor.GREEN))
                 .append(Component.text(", "))
-                .append(Component.text("Up", NamedTextColor.GREEN));
+                .append(Component.text("Up", NamedTextColor.GREEN)));
         return true;
     }
 
