@@ -33,10 +33,10 @@ public class PlayerJoinListener implements Listener {
             ev.joinMessage(Component.text(pl.getName(), NamedTextColor.YELLOW).decorate(TextDecoration.BOLD)
                 .append(Component.text(" joined the server!", NamedTextColor.YELLOW)));
             if(pl.hasPermission("custom.noclear")){
-                Welcome.oldPlayer(pl);
+                Welcome.builderPlayer(pl);
             }
             else{
-                Welcome.builderPlayer(pl);
+                Welcome.oldPlayer(pl);
             }
         }
         else{

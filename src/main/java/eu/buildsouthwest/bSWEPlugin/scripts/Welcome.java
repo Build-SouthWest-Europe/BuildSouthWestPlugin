@@ -181,7 +181,7 @@ public class Welcome {
                 .append(WARPS_BUILDER)
                 .append(Component.text("!", NamedTextColor.GOLD))
                 .appendNewline()
-                .append(Component.text("==========================================", NamedTextColor.GOLD))
+                .append(Component.text("==========================================", NamedTextColor.GOLD).decorate(TextDecoration.BOLD).decorate(TextDecoration.STRIKETHROUGH))
                 .appendNewline()
                 .append(Component.text("--NEW--", NamedTextColor.GOLD).decorate(TextDecoration.BOLD))
                 .appendNewline()

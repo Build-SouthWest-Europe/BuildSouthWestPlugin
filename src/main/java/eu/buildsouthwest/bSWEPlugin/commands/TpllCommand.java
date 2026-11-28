@@ -36,7 +36,10 @@ public class TpllCommand implements CommandExecutor {
             return true;
         }
 
-        if(pl.hasPermission("t+-.tpll")) forwardCommand(pl, args);
+        if(pl.hasPermission("t+-.tpll")){
+            forwardCommand(pl, args);
+            return true;
+        }
 
         if(!pl.hasPermission("tpll.trial")){
             pl.sendMessage(USAGE);
